@@ -1,0 +1,167 @@
+\documentclass[11pt]{article}
+\usepackage[left=2.54cm,top=2.54cm,right=2.54cm,bottom=2.54cm]{geometry}
+\geometry{letterpaper}                  
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{setspace}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{titlesec} 
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{dsfont}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+\usepackage{ stmaryrd }
+\usepackage[%
+  colorlinks=true,%
+  urlcolor=black,%
+  citecolor=blue%
+]{hyperref}% http://ctan.org/pkg/hyperref
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+\usepackage{breakcites}
+\usepackage{bm}
+\usepackage{dcolumn}
+
+\usepackage{longtable}
+% \usepackage{ltablex}
+% \usepackage{arydshln}
+\usepackage{booktabs}
+
+
+\usepackage{pgf}
+
+\usepackage{rotating}
+\usepackage{pdflscape}
+
+%\titleformat{\title}[display]{  \normalfont\large\filcenter\sc} { \vspace{-1in}}{0pc} {\titlerule \vspace{1pc} \large}
+  
+\clubpenalty=10000
+\widowpenalty=10000
+  
+\newcommand{\blank}[1]{\hspace*{#1}}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\usepackage{natbib} % work only natlib or cite
+\bibliographystyle{et} %библиография согласно Анатольеву
+
+
+\renewenvironment{abstract}
+ {\small
+  \begin{center}
+  \bfseries \abstractname\vspace{-.5em}\vspace{0pt}
+  \end{center}
+  \list{}{%
+    \setlength{\leftmargin}{10mm}% <---------- CHANGE HERE
+    \setlength{\rightmargin}{\leftmargin}%
+  }%
+  \item\relax}
+ {\endlist}
+ 
+% in order to work with assumptions, propositions, etc.
+\newtheorem{asu}{Assumption}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corol}{Corollary}
+
+\DeclareMathOperator*{\argmax}{argmax} % thin space, limits underneath in displays
+\DeclareMathOperator{\rank}{rank}
+
+% to work with definitions
+\theoremstyle{defn}
+\newtheorem{defn}{Definition}[section]
+
+% Select what to do with todonotes: 
+\usepackage[disable]{todonotes} % notes not showed
+%\usepackage[draft]{todonotes}   % notes showed
+%\setlength{\marginparwidth}{2.cm}    % higher width
+
+% Select what to do with command \comment:  
+% \newcommand{\comment}[1]{}  %comment not showed
+\newcommand{\comment}[1]
+{\par {\bfseries \color{blue} #1 \par}} %comment showed
+
+% special citations for frequent papers
+\defcitealias{brito_unilateral_2018}{BORV}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+\usepackage{breakcites}
+
+\begin{document}
+
+\doublespacing
+\begin{titlepage}
+%\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+
+%----------------------------------------------------------------------------------------
+%   HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{University of Michigan}\\[1cm] % Name of university/college
+
+%----------------------------------------------------------------------------------------
+%   TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+%\HRule \\
+{ \LARGE \bfseries Paper title} \\[0.3cm] 
+
+%----------------------------------------------------------------------------------------
+%   AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\textsc{}\\
+ Alexandr Moskalev\footnote[1]{Credits here...}\\[0.5cm]
+This version: \today\\
+\todo{This is a draft version. Disable 'ToDos' first.}
+
+%----------------------------------------------------------------------------------------
+%   DATE SECTION
+%----------------------------------------------------------------------------------------
+
+%\today\\[1cm] % Date, change the \today to a set date if you want to be precise
+\date
+\hrule
+
+%----------------------------------------------------------------------------------------
+%   ABSTRACT SECTION
+%----------------------------------------------------------------------------------------
+
+\abstract{\input{abstract.tex}}
+
+%----------------------------------------------------------------------------------------
+%   LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+\vfill % Filling the rest of the page with whitespace
+\end{titlepage}
+
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+
+\section{Introduction}
+\label{introduction}
+\input{introduction.tex}
+
+\newpage
+\clearpage
+
+\bibliographystyle{natbib}
+\bibliography{library}
+%\end{thebibliography} % is needed for correct quotes package
+
+\newpage
+
+\section*{Appendix}
+\label{appendix}
+\input{appendix.tex}
+
+\end{document}
